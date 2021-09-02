@@ -1,0 +1,35 @@
+---
+title: "Data 607 Week One Assignment"
+author: "Tyler Baker"
+date: "9/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Introduction
+### How Does the English Premier League Compare to the Rest of the World?
+
+The Barclay's English Premier League is often talked about. Teams such as Manchester United, Manchester City, and Chelsea are often discussed in the sports world. Equally, if not more, players such as Beckham, Salah, De Bruyne, and Ronaldo  are also often discussed. Clearly, the English Premier League is popular, but is the popularity deserved?
+
+```{r cars}
+club_rankings <- read.csv("https://projects.fivethirtyeight.com/soccer-api/club/spi_global_rankings.csv", header= TRUE)
+cols <- c("World Rank", "Previous World Rank", "Name", "League", "offensive Rating", "Defensive Rating", "PSI")
+colnames(club_rankings)<- cols
+premier_league_rankings <- filter(club_rankings, League== "Barclays Premier League")
+```
+
+## Including Plots
+
+I don't know how to inclulde graphs or tables yet.
+
+```{r premier_league_rankings, echo=FALSE}
+display <- ggplot(premier_league_rankings, aes("World Rank"))
+```
+
+## Conclusion
+
+I initially took the world rankings of clubs across the world. Then I examined just the clubs that are in the English Premier League. I found out that four of these teams are within the top ten best clubs in the world. Clearly, the top of the Premier League is strong, but what about the bottom half of the league? The worst team in the league is Norwich City. However, Norwich city is considered better than 83% of football clubs around the world. In conclusion, the English Premier League deserves the popularity.
